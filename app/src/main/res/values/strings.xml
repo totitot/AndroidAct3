@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Act3</string>
+    <string name="view_username">Username</string>
+    <string name="view_password">Password</string>
+    <string name="edit_username">Enter username</string>
+    <string name="edit_password">Enter password</string>
+    <string name="edit_password_not_visible">********</string>
+    <string name="button_login">Login</string>
+    <string name="view_no_account_label">No account yet?</string>
+    <string name="button_create_user">Create one.</string>
+    <string name="edit_address">Enter address</string>
+    <string name="edit_contact_number">Enter number</string>
+    <string name="view_name_label">Name</string>
+    <string name="edit_name">Enter name</string>
+    <string name="view_confirm_password">Confirm Password</string>
+    <string name="view_address">Address</string>
+    <string name="view_gender">Gender</string>
+    <string name="view_email_addres">Email Address</string>
+    <string name="edit_email_addres">Enter email address</string>
+    <string-array name="spinner_gender_choices">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="button_back">Back</string>
+    <string name="button_save">Save</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_change_password">Change Password</string>
+    <string name="button_update">Update</string>
+    <string name="view_welcome_home">Welcome home,</string>
+    <string name="button_view_info">View Info</string>
+    <string name="button_logout">Logout</string>
+    <string name="edit_old_password">Enter old password</string>
+    <string name="edit_new_password">Enter new password</string>
+    <string name="edit_confirm_new_password">Confirm new password</string>
+    <string name="button_save_new_password">Save new password</string>
+</resources>
