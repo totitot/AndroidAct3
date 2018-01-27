@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.crisolokenth.act3">
+    package="com.totitot.act3">
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterUser" />
-        <activity android:name=".DisplayDetails" />
         <activity android:name=".HomeScreen" />
         <activity android:name=".UpdateInfo" />
         <activity android:name=".UpdatePassword"></activity>

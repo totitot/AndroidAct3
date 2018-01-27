@@ -5,7 +5,7 @@
     android:id="@+id/my_group"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.crisolokenth.act3.RegisterUser">
+    tools:context="com.totitot.act3.RegisterUser">
 
     <TextView
         android:id="@+id/textView"

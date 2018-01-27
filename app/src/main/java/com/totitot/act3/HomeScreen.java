@@ -1,4 +1,4 @@
-package com.crisolokenth.act3;
+package com.totitot.act3;
 
 import android.content.Intent;
 import android.database.Cursor;
