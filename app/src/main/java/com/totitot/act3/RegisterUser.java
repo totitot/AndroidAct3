@@ -61,12 +61,7 @@ public class RegisterUser extends AppCompatActivity {
             db.db.insert(DATABASE_TABLE, null, content);
 
             Intent next_screen = new Intent(this, HomeScreen.class);
-//            next_screen.putExtra("user_name", name);
             next_screen.putExtra("user_username", username);
-//            next_screen.putExtra("user_password", password);
-//            next_screen.putExtra("user_address", address);
-//            next_screen.putExtra("user_gender", gender);
-//            next_screen.putExtra("user_email", email);
             startActivity(next_screen);
             Toast.makeText(this,"User registered!", Toast.LENGTH_SHORT).show();
             finish();

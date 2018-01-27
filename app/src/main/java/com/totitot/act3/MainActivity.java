@@ -54,12 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 Intent next_screen = new Intent(this, HomeScreen.class);
- //               next_screen.putExtra("user_name", mCursor.getString(1));
                 next_screen.putExtra("user_username", username);
-//                next_screen.putExtra("user_password", mCursor.getString(3));
-//                next_screen.putExtra("user_address", mCursor.getString(4));
-//                next_screen.putExtra("user_gender", mCursor.getString(5));
-//                next_screen.putExtra("user_email", mCursor.getString(6));
 
                 Toast.makeText(this,"Login success!", Toast.LENGTH_SHORT).show();
                 startActivity(next_screen);
