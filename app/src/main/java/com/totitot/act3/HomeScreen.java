@@ -22,16 +22,16 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         db = new DBAdapter(getApplicationContext());
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         try{
             db.open();
         }catch(SQLException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         username = getIntent().getStringExtra("user_username");
 
@@ -59,8 +59,8 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         db.close();
     }
 }

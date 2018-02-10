@@ -19,19 +19,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = new DBAdapter(getApplicationContext());
-
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         try {
             db.open();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
+
+//  @Override
+//  protected void onStart() {
+//      super.onStart();
+//      try {
+//          db.open();
+//      } catch (SQLException e) {
+//          e.printStackTrace();
+//      }
+//  }
 
     public void createNewUser(View view) {
         Intent next_screen = new Intent(this, RegisterUser.class);
@@ -40,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void login(View view) {
 
-        String username = ((EditText)(findViewById(R.id.editText))).getText().toString();
-        String password = ((EditText)(findViewById(R.id.editText2))).getText().toString();
+        String username = ((EditText)(findViewById(R.id.username))).getText().toString();
+        String password = ((EditText)(findViewById(R.id.password))).getText().toString();
         Cursor mCursor =
                 db.db.query(true, DATABASE_TABLE, new String[] {"_id",
                                 "name", "username", "password","address","gender","email"},
@@ -49,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
                         null, null, null, null);
 
         if (mCursor.moveToFirst()) {
-            if(password.equals(mCursor.getString(3))){
+            String storedpassword = mCursor.getString(3);
+            Toast.makeText(this,storedpassword + " entered " + password, Toast.LENGTH_SHORT).show();
+            if(!storedpassword.equals(password)){
                 Toast.makeText(this,"Incorrect user and/or password!",Toast.LENGTH_SHORT).show();
             }
             else{
@@ -67,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         db.close();
     }
 }

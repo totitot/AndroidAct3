@@ -19,22 +19,24 @@ public class UpdateInfo extends AppCompatActivity {
     String name, username, address, password, email, gender;
     int genderIndex;
     Spinner mySpinner;
+    String prev_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_info);
         db = new DBAdapter(getApplicationContext());
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         try{
             db.open();
         }catch(SQLException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
 
         username = getIntent().getStringExtra("user_username");
 
@@ -60,6 +62,7 @@ public class UpdateInfo extends AppCompatActivity {
             ((EditText) findViewById(R.id.editText5)).setText(address);
             ((EditText) findViewById(R.id.editText6)).setText(email);
             mySpinner.setSelection(genderIndex);
+            prev_username = username;
         }
     }
 
@@ -97,7 +100,7 @@ public class UpdateInfo extends AppCompatActivity {
         content.put("address", address);
         content.put("gender", gender);
         content.put("email", email);
-        db.db.update(DATABASE_TABLE, content, "username =?", new String[]{username});
+        db.db.update(DATABASE_TABLE, content, "username =?", new String[]{prev_username});
 
         Intent next_screen = new Intent(this, HomeScreen.class);
         next_screen.putExtra("user_username", username);
@@ -114,8 +117,8 @@ public class UpdateInfo extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         db.close();
     }
 }

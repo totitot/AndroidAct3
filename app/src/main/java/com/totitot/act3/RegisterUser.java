@@ -21,18 +21,22 @@ public class RegisterUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
         db = new DBAdapter(getApplicationContext());
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         try{
             db.open();
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
+
+ //  @Override
+ //  protected void onStart() {
+ //      super.onStart();
+ //      try{
+ //          db.open();
+ //      }catch(SQLException e){
+ //          e.printStackTrace();
+ //      }
+ //  }
 
     public void previousScreen(View view){
         Intent prev_screen = new Intent(this, MainActivity.class);
@@ -41,13 +45,13 @@ public class RegisterUser extends AppCompatActivity {
     }
 
     public void saveDetails(View view){
-       String name = ((EditText)findViewById(R.id.editText)).getText().toString();
-       String username = ((EditText)findViewById(R.id.editText2)).getText().toString();
-       String password = ((EditText)findViewById(R.id.editText3)).getText().toString();
-       String cpassword = ((EditText)findViewById(R.id.editText4)).getText().toString();
-       String address = ((EditText)findViewById(R.id.editText5)).getText().toString();
-       String email = ((EditText)findViewById(R.id.editText6)).getText().toString();
-       String gender = ((Spinner) findViewById(R.id.spinner)).getSelectedItem().toString();
+       String name = ((EditText)findViewById(R.id.name)).getText().toString();
+       String username = ((EditText)findViewById(R.id.username)).getText().toString();
+       String password = ((EditText)findViewById(R.id.password)).getText().toString();
+       String cpassword = ((EditText)findViewById(R.id.confirmpassword)).getText().toString();
+       String address = ((EditText)findViewById(R.id.address)).getText().toString();
+       String email = ((EditText)findViewById(R.id.email)).getText().toString();
+       String gender = ((Spinner) findViewById(R.id.gender)).getSelectedItem().toString();
 
 
         if(password.equals(cpassword)) {
@@ -67,24 +71,24 @@ public class RegisterUser extends AppCompatActivity {
             finish();
         }
         else{
-            Toast.makeText(this,"Passwords do not match! Password: " + password + "confirm : " + " "+ cpassword,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Passwords do not match! Password: " + password + " confirm : " + " "+ cpassword,Toast.LENGTH_SHORT).show();
 
         }
         db.close();
     }
 
     public void clearContents(View view){
-        ((EditText)findViewById(R.id.editText)).getText().clear();
-        ((EditText)findViewById(R.id.editText2)).getText().clear();
-        ((EditText)findViewById(R.id.editText3)).getText().clear();
-        ((EditText)findViewById(R.id.editText4)).getText().clear();
-        ((EditText)findViewById(R.id.editText5)).getText().clear();
-        ((EditText)findViewById(R.id.editText6)).getText().clear();
+        ((EditText)findViewById(R.id.name)).getText().clear();
+        ((EditText)findViewById(R.id.username)).getText().clear();
+        ((EditText)findViewById(R.id.password)).getText().clear();
+        ((EditText)findViewById(R.id.confirmpassword)).getText().clear();
+        ((EditText)findViewById(R.id.address)).getText().clear();
+        ((EditText)findViewById(R.id.email)).getText().clear();
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         db.close();
     }
 }
