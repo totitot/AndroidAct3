@@ -37,7 +37,6 @@ public class UpdateInfo extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
         username = getIntent().getStringExtra("user_username");
 
         Cursor mCursor =
@@ -53,7 +52,7 @@ public class UpdateInfo extends AppCompatActivity {
             gender = mCursor.getString(5);
             email = mCursor.getString(6);
 
-            mySpinner = (Spinner)findViewById(R.id.spinner);
+            mySpinner = findViewById(R.id.spinner);
             genderIndex = getIndex(mySpinner, gender);
 
 
@@ -64,6 +63,7 @@ public class UpdateInfo extends AppCompatActivity {
             mySpinner.setSelection(genderIndex);
             prev_username = username;
         }
+        mCursor.close();
     }
 
     private int getIndex(Spinner spinner, String myString)
